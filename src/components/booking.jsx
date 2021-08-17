@@ -69,6 +69,16 @@ const  Booking =()=> {
     location:"",
     locationNumber:""
   });
+  const changeDate=(day)=>{
+   
+    Axios.post("get_calendar",{day:day,date:calendernfo.date})
+    .then(res =>{
+      console.log("calender");
+      console.log(res.data);
+      setCalender({data:res.data.html,date:res.data.date,currentYear:res.data.currentYear,month:res.data.month});
+     
+    });
+   }
   const [moreFacilities, setMoreFacilities] = useState([]);
   const { id } = useParams();
   // const [pageInfo, setPageInfo] = useState({
@@ -449,31 +459,14 @@ let array=[];
     <div class="form-top-sec" key={childpost.id}>
 
         <div class="row">
-
-            <div class="col-md-3">
+<div class="col-md-1"></div>
+            <div class="col-md-4">
                   <div class="floating-label floating-school-label open-left-responsive">
                     <p style={{marginTop:'5px !important',color:'#686868',fontSize: '16px'}}>{childpost.amenities_name}</p>
                   </div>
 
             </div>
-
-            <div class="col-md-3">
-                <div class="floating-label">
-                    <div class="radioOptions" style={{marginTop:'22px'}}>
-                        <div class="radio-inner">
-                            <p style={{color:'#686868'}}> <input name="orgaizationType" type="radio" value="Yes"/>  Yes  </p>
-                        </div>
-
-                        <div class="radio-inner">
-                            <p style={{color:'#686868'}}> <input name="orgaizationType" type="radio" value="No"/> No </p>
-                        </div>
-                    </div>
-                  </div>
-            </div>
-
-
-
-            <div class="col-md-3 item-number">
+            <div class="col-md-4 item-number">
                 <div class="floating-label">
                           <p class="quantity-sec">Number</p>
                       <div class="select is-primary">
@@ -488,17 +481,34 @@ let array=[];
                   </div>
             </div>
 
+            {/* <div class="col-md-3">
+                <div class="floating-label" >
+                    <div class="radioOptions" style={{marginTop:'22px'}}>
+                        <div class="radio-inner">
+                            <p style={{color:'#686868'}}> <input name="orgaizationType" type="radio" value="Yes"/>  Yes  </p>
+                        </div>
 
-
-            <div class="col-md-2" style={{paddingLeft:'0px',paddingRight:'0px'}}>
-                  <div class="floating-label price-sec-item">      
-                    <p>$11 per/hour</p>
+                        <div class="radio-inner">
+                            <p style={{color:'#686868'}}> <input name="orgaizationType" type="radio" value="No"/> No </p>
+                        </div>
+                    </div>
                   </div>
             </div>
 
+
+
+           
+
+
+            <div class="col-md-2" style={{paddingLeft:'0px',paddingRight:'0px', visibility: 'hidden'}}>
+                  <div class="floating-label price-sec-item">      
+                    <p>$11 per/hour</p>
+                  </div>
+            </div> */}
+<div class="col-md-1"></div>
             <div class="col-md-1" style={{paddingLeft: '0px',paddingRight:'0px'}}  onClick={()=>addAmenities(post.data,childpost)}>
                 <div class="add-to-cart">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    <i class="fa fa-plus-circle" aria-hidden="true" style={{fontSize: '19px'}}></i>
                 </div>
             </div>                            
 
@@ -585,7 +595,7 @@ let array=[];
 
                            </div>
 
-                           <div class="col-md-9" style={{paddingLeft:'0px'}}>
+                           <div class="col-md-9" style={{paddingLeft:'0px', zIndex: '999999'}}>
 
                                <div class="data-para">
 
@@ -596,9 +606,7 @@ let array=[];
                                <a onClick={setShowCalenderShow}  class="btn-time btn-change" style={{textDecoration: 'none',cursor: 'pointer',color:'#646663', textAlign: 'left'}}>Change Date </a>
 
                            </div>
- { showCalender?                         
- <div  dangerouslySetInnerHTML={{__html: calendernfo.data}}></div>:""
-}
+
                            </div>
 
                        </div>
@@ -659,7 +667,7 @@ let array=[];
 
 
 
-<div class="calender-wraps" id="calender-show" style={{display:'none',marginTop:'-11px'}}>
+<div class="calender-wraps" id="calender-show" style={{display:'none',marginTop:'-11px', zIndex: '999999'}}>
 
 <div class="date-wrap">
 
@@ -816,7 +824,40 @@ let array=[];
 </div>
 
 
+{ showCalender?                         
+ <>
+<div class="calender-wraps">
+ <div class="date-wrap">
 
+<div class="left" onClick={()=>changeDate('yesterday')}>
+
+    <div class="btn-previous" id="previous-month" data-id="5b2fea0bd26722002483114d"><span class="fa fa-angle-left" aria-hidden=""></span></div>
+
+</div>
+
+
+
+<div class="right" onClick={()=>changeDate('tomorrow')}>
+
+    <div class="btn-nexts" >
+
+        <span class="fa fa-angle-right" aria-hidden=""></span></div>
+
+</div>
+
+
+
+<div class="mid">
+
+    <span class="date-title"  id="current-selected-date" data-current-date="">{calendernfo.currentYear+', '+calendernfo.month}</span>&nbsp;&nbsp;<span  id="month-dd" class="fa fa-calendar cursor" aria-hidden=""></span>
+
+   </div>
+
+</div>
+ <div  dangerouslySetInnerHTML={{__html: calendernfo.data}} style={{zIndex: '999999'}}></div></div>
+ 
+ </>:""
+}
 
 <div class="amenty-section">
 
@@ -990,13 +1031,13 @@ let array=[];
 
                <div class="col-md-12">
 
-                   <h2>Smiliar Facilities</h2>
+                   <h2 style={{textAlign: 'left'}}>Smiliar Facilities</h2>
                    <Carousel responsive={responsive}>
 
 {   moreFacilities.map((post,index)=>(                     
 <div class="child card" key={post.id} >
-<img class="card-img-top" src="../image/rooms.jfif" alt="Card image cap"/>
-<div class="img-sample img-sample-slide"><span>SAMPLE PHOTO</span></div>
+<img class="card-img-top card-caro" src="../image/rooms.jfif" alt="Card image cap"/>
+<div class="img-sample img-sample-slide img-card-caro"><span>SAMPLE PHOTO</span></div>
 <div class="card-body card-school">       
 <h5 class="card-title card-tit-view">{post.type}</h5>
 
@@ -1034,7 +1075,7 @@ let array=[];
 </div>
 
 <Modal show={show1} onHide={handleClose1} >
-  <div style={{backgroundColor: '#ffffff'}}>
+  <div class="bookingclose" style={{backgroundColor: '#ffffff'}}>
         <Modal.Header closeButton >
         </Modal.Header>
         <div class="modal-body modal-body-apply modal-request" style={{padding:'22px 0px'}}>
