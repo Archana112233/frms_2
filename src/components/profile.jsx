@@ -1359,15 +1359,15 @@ if(!applicant_id1){
       </div>
 
       <div className={`tab-pane fade show ${tab==='booking'?'active':''}`} id="profile5" role="tabpanel" aria-labelledby="profile-tab5">
-      <div class="col-md-12">
-        <Link to="/"> <a  class="btn-cacl-book" style={{textDecoration: 'none'}}  > New Booking</a></Link>
+      <div class="col-md-12" style={{width:'96%'}}>
+        <Link to="/"> <a  class="btn-cacl-book" style={{textDecoration: 'none', float: 'right'}}  > New Booking</a></Link>
             </div> 
       {   bookings.map((post,index)=>(   
        <div class="row booking-border">        
 
             <div class="col-md-12">
               <div class="book-heading">
-              <h2>Active Booking</h2>
+              <h2 style={{textAlign: 'left'}}>Active Booking</h2>
               </div>
             </div>
 
@@ -1390,7 +1390,7 @@ if(!applicant_id1){
             </div>
 
             <div class="col-md-12">
-              <a href="#" class="btn-cacl-book" style={{textDecoration: 'none'}} data-toggle="modal" data-target="#exampleModalcancel" data-dismiss="modal"> Cancel Booking</a>
+              <a href="#" class="btn-cacl-book" style={{textDecoration: 'none', float: 'left'}} data-toggle="modal" data-target="#exampleModalcancel" data-dismiss="modal" > Cancel Booking</a>
             </div>         
 
         </div>
