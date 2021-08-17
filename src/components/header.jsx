@@ -444,13 +444,13 @@ dispatch(userData({
 } */}
  
                           {applicant_id1 ?                          
-                         <>{siteData.page==='profile' ? <Link to={`/`}><li>  <a class="download-sec download-sec-view">Home</a></li></Link> :<Link to={`/profile/${applicant_id1}`}><li>  <a class="download-sec download-sec-view">Profile</a></li></Link>  }
+                         <>{siteData.page==='profile' ? <Link to={`/`}><li>  <a class="download-sec download-sec-view" style={{cursor:'pointer'}}>Home</a></li></Link> :<Link to={`/profile/${applicant_id1}`}><li>  <a class="download-sec download-sec-view">Profile</a></li></Link>  }
                          
-                         <Link to="/"><li onClick={signOut}>  <a class="download-sec download-sec-view">Signout</a></li></Link> 
+                         <Link to="/"><li onClick={signOut}>  <a class="download-sec download-sec-view" style={{cursor:'pointer'}}>Logout</a></li></Link> 
                          </>
                           :<>
-                          <li onClick={initiateSignup}>  <a class="download-sec download-sec-view">Sign Up{applicant_id}</a></li>
-                          <li  onClick={initiateLogin}><a  class="download-sec download-sec-view" >Login</a></li>
+                          <li onClick={initiateSignup}>  <a class="download-sec download-sec-view" style={{cursor:'pointer'}}>Sign Up{applicant_id}</a></li>
+                          <li  onClick={initiateLogin}><a  class="download-sec download-sec-view" style={{cursor:'pointer'}}>Login</a></li>
                           </>
                           }
                       </ul>                     
@@ -462,10 +462,11 @@ dispatch(userData({
       </div>
   </header>
 
-  <Modal show={showM} onHide={handleCloseM}>
-        <Modal.Header closeButton>
+  <Modal show={showM} onHide={handleCloseM} className='closelogin'>
+    <div class="login-close">
+        <Modal.Header closeButton >
         </Modal.Header>
-        <div class="modal-dialog time-modal-dialog login-dialog modal-dialog-centered " role="document">
+        <div class=" " role="document">
 
     <div class="modal-content content-popup">
 
@@ -475,11 +476,11 @@ dispatch(userData({
 
 <h5 class="modal-title modal-time-title login-heading" id="exampleModalLongTitle">LOGIN </h5>
 
-<button type="button" class="close close-apply" data-dismiss="modal" aria-label="Close" style={{outline:'none',right:'-25px',top:'-31px'}}>
+{/* <button type="button" class="close close-apply" data-dismiss="modal" aria-label="Close" style={{outline:'none',right:'-25px',top:'-31px'}}>
 
   <span aria-hidden="true" style={{outline: 'none',fontFamily: 'FontAwesome',fontSize: '33px'}}>×</span>
 
-</button>
+</button> */}
 
 </div>
      <div class="modal-body modal-body-apply">
@@ -532,9 +533,13 @@ dispatch(userData({
       </div>
       </div>
       </div>
+
+
+      </div>
 </Modal>
 
 <Modal show={showR} onHide={handleCloseR}>
+  <div class="login-close">
         <Modal.Header closeButton>
         </Modal.Header>
         <div class="modal-dialog time-modal-dialog login-dialog modal-dialog-centered " role="document">
@@ -547,11 +552,11 @@ dispatch(userData({
 
     <h5 class="modal-title modal-time-title login-heading" id="exampleModalLongTitle" >Reset Password </h5>
 
-    <button type="button" class="close close-apply" data-dismiss="modal" aria-label="Close" style={{outline:'none',right:'-25px',top:'-31px'}}>
+    {/* <button type="button" class="close close-apply" data-dismiss="modal" aria-label="Close" style={{outline:'none',right:'-25px',top:'-31px'}}>
 
       <span aria-hidden="true" style={{outline: 'none',fontFamily: 'FontAwesome',fontSize: '33px'}}>×</span>
 
-    </button>
+    </button> */}
 
   </div>
 
@@ -607,7 +612,7 @@ dispatch(userData({
 
 </div>
 
-
+</div>
 </Modal>
 
 <Modal show={showUP} onHide={handleCloseUP}>
