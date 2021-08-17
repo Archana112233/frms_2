@@ -532,7 +532,7 @@ footer p{color:rgb(86 82 82 / 71%);font-size: 18px;margin-bottom: 8px;line-heigh
 
 	.card{box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
 
-		margin-bottom: 16px;width:97%;}
+		margin-bottom: 16px;width:87%;}
 
 		ul.breadcrumb {
 
@@ -840,7 +840,7 @@ footer p{color:rgb(86 82 82 / 71%);font-size: 18px;margin-bottom: 8px;line-heigh
 
 					margin: 0 auto;
 
-					margin-top: -20px;
+					margin-top: -6px;
 
 					position: relative;
 
@@ -1060,7 +1060,7 @@ footer p{color:rgb(86 82 82 / 71%);font-size: 18px;margin-bottom: 8px;line-heigh
 
 				
 
-				.card-tit-view{font-size: 14px !important;}
+				.card-tit-view{font-size: 13px !important;}
 
 				.more-para{font-size: 24px;
 
@@ -1834,7 +1834,7 @@ footer p{color:rgb(86 82 82 / 71%);font-size: 18px;margin-bottom: 8px;line-heigh
 
 				border-radius: 4px}
 
-			.img-sample-slide{height:17%;bottom:49px;}
+			.img-sample-slide{height:17%;bottom:48px;}
 
 			.img-sample-slide span{padding-top:6px;font-size: 11px;font-family: 'Heebo-Medium';}
 
@@ -3444,7 +3444,7 @@ width: 100%;text-shadow: 0 13.36px 8.896px #2b2b29, 0 0px 1px #fff;font-weight: 
 .react-multiple-carousel__arrow:hover {background: transparent;}
 .modal-dialog {max-width: 590px; margin: 1.75rem auto;}
 .modal-header{padding:15px 17px;}
-.modal-header .close {padding: 1rem 1rem;margin: -54px -45px -10px auto;}
+.modal-header .close {padding: 1rem 1rem;margin: -24px -52px -28px auto;}
 .close{opacity:11;color:#ffffff;}
 .close.hover{color:#ffffff;}
 .css-nakgy8-TimeKeeper{position: absolute !important;left: 131px !important;top: 106px !important;}
@@ -3457,7 +3457,14 @@ width: 100%;text-shadow: 0 13.36px 8.896px #2b2b29, 0 0px 1px #fff;font-weight: 
 .btn-delete:hover{color:#ffffff}
 .btn-add:hover{color: #ffffff;}
 .listing-sec a{color:#484848}
-
+.bookingclose .modal-header .close{ padding: 1rem 1rem !important;
+    margin: -54px -52px -28px auto !important;}
+.ready-modal .modal-header .close{margin:-53px -52px -28px auto}
+.login-close .modal-header .close{margin:-23px 36px -28px auto;}
+.card-img, .card-img-bottom, .card-caro{height:230px !important;}
+.img-card-caro{height: 14%;
+    bottom: 47px}
+	.img-card-caro span{padding-top:10px;}
 /*** for mobile responsive code ****/
 
 
