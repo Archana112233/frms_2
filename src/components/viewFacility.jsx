@@ -542,7 +542,7 @@ useEffect(() => {
             </div>
 
             <Modal show={show1} onHide={handleClose1} className="header-ready">
-              <div class="" style={{backgroundColor: '#ffffff'}}>
+              <div class="ready-modal" style={{backgroundColor: '#ffffff'}}>
         <Modal.Header closeButton className="header-viewfac">
         <div class=" modal-time-apply" style={{paddingTop:'0px'}}>
 
